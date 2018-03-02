@@ -18,7 +18,6 @@
   instance_profile_name={{ instance_profile_name }}
   group={{ security_group }}
   wait=true
-  volumes={{volumes}}
   register: ec2
  
 - name: Associating after allocating elastic IP
