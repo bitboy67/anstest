@@ -3,8 +3,7 @@
   hosts: localhost
   connection: local
   vars:
-       count: {{ count }}
-       volumes:
+         volumes:
                - device_name: /dev/sda1
                  volume_size: {{ volume-size }}    
  
