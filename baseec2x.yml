@@ -1,11 +1,19 @@
 ---
-- ec2:
-    key_name: myEC2Key
-    region: ap-southeast-2
-    instance_type: t2.micro
-    image: ami-942dd1f6
-    wait: yes
-    group: webserver
-    count: 3
-    assign_public_ip: yes
+- name: Provision ec2 instances based on the environment
+  hosts: localhost
+  connection: local
+  gather_facts: False
+
+
+  tasks:
+  - name: Launch instances
+    ec2:
+        key_name: myEC2Key
+        region: ap-southeast-2
+        instance_type: t2.micro
+        image: ami-942dd1f6
+        wait: yes
+        group: webserver
+        count: 3
+        assign_public_ip: yes
   ...
