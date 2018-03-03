@@ -16,4 +16,3 @@
         group: webserver
         count: 3
         assign_public_ip: yes
-  ...
