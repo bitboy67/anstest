@@ -8,7 +8,7 @@
   tasks:
   - name: Launch instances
     ec2:
-        key_name: myEC2Key
+        key_name: MyEC2Key
         region: ap-southeast-2
         instance_type: t2.micro
         image: ami-942dd1f6
