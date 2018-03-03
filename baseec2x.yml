@@ -13,6 +13,6 @@
         instance_type: t2.micro
         image: ami-942dd1f6
         wait: yes
-        group: webserver
+        group: baseSG
         count: 3
         assign_public_ip: yes
