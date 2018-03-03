@@ -1,8 +1,9 @@
 ---
 - ec2:
     key_name: myEC2Key
+    region: ap-southeast-2
     instance_type: t2.micro
-    image: ami-123456
+    image: ami-942dd1f6
     wait: yes
     group: webserver
     count: 3
