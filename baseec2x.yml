@@ -15,4 +15,4 @@
         wait: yes
         group: baseSG
         count: 3
-        assign_public_ip: yes
+        assign_public_ip: no
