@@ -13,9 +13,10 @@
         image: ami-942dd1f6
         wait: yes
         group: launch-wizard-2
-        count: 1
+        count: 2
         vpc_subnet_id: subnet-ac0325c9
         assign_public_ip: yes
+    register: ec2
         
   - name: Add new instance to host group
     add_host:
