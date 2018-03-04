@@ -5,4 +5,4 @@
   tasks:
 
   - name: Hello World!
-    shell: echo "Hi! Tower is working!" > ~myoutput.txt
+    shell: echo "Hi! Tower is working!" > mynewoutput.txt
