@@ -1,0 +1,28 @@
+---
+- name: Provision ec2 instances based on the environment
+  hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+  - name: Launch instances
+    ec2:
+        key_name: MyEC2Key
+        region: ap-southeast-2
+        instance_type: t2.micro
+        image: ami-942dd1f6
+        wait: yes
+        group: launch-wizard-2
+        count: 2
+        vpc_subnet_id: subnet-ac0325c9
+        assign_public_ip: yes
+        instance_tags:
+          detname: myserv
+          env: {{ env_name_tag }}
+    register: ec2
+        
+  - name: Add new instance to host group
+    add_host:
+        hostname: "{{ item.public_ip }}"
+        groupname: Demo Inventory
+    with_items: "{{ ec2.instances }}"
