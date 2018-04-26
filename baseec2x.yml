@@ -12,7 +12,7 @@
         instance_type: t2.micro
         image: ami-942dd1f6
         wait: yes
-        group: launch-wizard-2
+        group: default
         count: 2
         vpc_subnet_id: subnet-009aa7986b32c5b47
         assign_public_ip: no
