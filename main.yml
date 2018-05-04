@@ -1,0 +1,7 @@
+---
+instance_types:
+  Small: t2.micro
+  Medium: t2.small
+  Large: t2.medium
+  Extra Large: t2.large
+inst_type: "{{ instance_types[aws_size] }}"
