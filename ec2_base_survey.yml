@@ -1,4 +1,11 @@
 ---
+instance_types:
+  Small: t2.micro
+  Medium: t2.small
+  Large: t2.medium
+  Extra Large: t2.large
+inst_type: "{{ instance_types[aws_size] }}"
+
 - name: Provision ec2 instances based on the environment
   hosts: localhost
   connection: local
@@ -9,7 +16,7 @@
     ec2:
         key_name: np_kp_aws
         region: ap-southeast-2
-        instance_type: t2.micro
+        instance_type: "{{ inst_type }}"
         image: ami-942dd1f6
         wait: yes
         group: default
