@@ -1,4 +1,7 @@
 ---
+- name: Test varable setting
+  hosts: all
+
 vars:
   instance_types:
     Small: t2.micro
