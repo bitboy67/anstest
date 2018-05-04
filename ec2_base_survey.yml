@@ -10,6 +10,17 @@
       Large: t2.medium
       Extra Large: t2.large
     inst_type: "{{ instance_types[aws_size] }}"
+    images:
+      Windows2016: ami
+      Windows2012:
+      Linux: ami-942dd1f6
+    image_type: "{{ images[aws_image] }}"
+    environments:
+      Production: subnet-7795e13e
+      Non-Production: subnet-009aa7986b32c5b47
+      Shared Services: subnet-ee8ef589
+      DMZ: subnet-0316165c451c9a8d8
+    aws_subnet: "{{ environments[aws_env] }}"
 
   tasks:
   - name: Launch instances
@@ -21,7 +32,7 @@
         wait: yes
         group: default
         count: "{{aws_inst_count}}"
-        vpc_subnet_id: subnet-009aa7986b32c5b47
+        vpc_subnet_id: "{{ aws_subnet }}"
         assign_public_ip: no
         instance_tags:
           detname: myserv
