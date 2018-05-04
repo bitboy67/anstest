@@ -13,7 +13,7 @@
         image: ami-942dd1f6
         wait: yes
         group: default
-        count: {{aws_inst_count}}
+        count: "{{aws_inst_count}}"
         vpc_subnet_id: subnet-009aa7986b32c5b47
         assign_public_ip: no
         instance_tags:
