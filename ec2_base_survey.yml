@@ -1,5 +1,5 @@
 ---
-- include: main.yml
+- impot_playbook: main.yml
 
 - name: Provision ec2 instances based on the environment
   hosts: localhost
