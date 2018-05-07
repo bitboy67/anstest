@@ -18,7 +18,7 @@
     image_type: "{{ images[host_os] }}"
     environments:
       Production: subnet-7795e13e
-      Non-Production: subnet-009aa7986b32c5b47
+      Non-production: subnet-009aa7986b32c5b47
       Shared Services: subnet-ee8ef589
       DMZ: subnet-0316165c451c9a8d8
     aws_subnet: "{{ environments[dep_env] }}"
