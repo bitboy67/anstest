@@ -1,6 +1,13 @@
 ---
-- local_action:
-    module: ec2
-    instance_tags:
+- name: Stop ec2 instances based on the environment
+  hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+  - name: Stop instances
+    local_action:
+      module: ec2
+      instance_tags:
         Name: "{{ host_name }}"
-    state: stopped
+      state: stopped
