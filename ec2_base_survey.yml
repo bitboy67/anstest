@@ -34,8 +34,11 @@
         count: "{{aws_inst_count}}"
         vpc_subnet_id: "{{ aws_subnet }}"
         assign_public_ip: no
+        termination_protection: yes
         instance_tags:
-          Name: "{{ aws_app_name }}"
+          Name: "{{ aws_host_name }}"
+          AppGroup: "{{ aws_app_name }}"
           Environment: "{{ aws_env }}"
           DataClass: "{{ aws_data_class }}"
+          OpWindow: "{{ aws_op_window }}"
     register: ec2
