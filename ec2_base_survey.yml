@@ -4,6 +4,7 @@
   connection: local
   gather_facts: False
   vars:
+    aws_host_name: testhost
     instance_types:
       Small: t2.micro
       Medium: t2.small
