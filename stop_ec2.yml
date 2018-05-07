@@ -8,6 +8,7 @@
   - name: Stop instances
     local_action:
       module: ec2
+      region: ap-southeast-2
       instance_tags:
         Name: "{{ host_name }}"
       state: stopped
