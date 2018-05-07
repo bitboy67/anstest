@@ -35,6 +35,7 @@
         vpc_subnet_id: "{{ aws_subnet }}"
         assign_public_ip: no
         instance_tags:
-          detname: "{{ aws_app_name }}"
-          env: "{{ aws_env }}"
+          Name: "{{ aws_app_name }}"
+          Environment: "{{ aws_env }}"
+          DataClass: "{{ aws_data_class }}"
     register: ec2
