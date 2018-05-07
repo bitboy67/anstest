@@ -10,18 +10,18 @@
       Medium: t2.small
       Large: t2.medium
       Extra Large: t2.large
-    inst_type: "{{ instance_types[aws_size] }}"
+    inst_type: "{{ instance_types[host_size] }}"
     images:
       Windows2016: ami-00000000
       Windows2012: ami-00000000
       Linux: ami-942dd1f6
-    image_type: "{{ images[aws_image] }}"
+    image_type: "{{ images[host_os] }}"
     environments:
       Production: subnet-7795e13e
       Non-Production: subnet-009aa7986b32c5b47
       Shared Services: subnet-ee8ef589
       DMZ: subnet-0316165c451c9a8d8
-    aws_subnet: "{{ environments[aws_env] }}"
+    aws_subnet: "{{ environments[dep_env] }}"
 
   tasks:
   - name: Launch instances
@@ -32,14 +32,14 @@
         image: ami-942dd1f6
         wait: yes
         group: default
-        count: "{{aws_inst_count}}"
+        count: 1
         vpc_subnet_id: "{{ aws_subnet }}"
         assign_public_ip: no
         termination_protection: yes
         instance_tags:
-          Name: "{{ aws_host_name }}"
-          AppGroup: "{{ aws_app_name }}"
-          Environment: "{{ aws_env }}"
-          DataClass: "{{ aws_data_class }}"
-          OpWindow: "{{ aws_op_window }}"
+          Name: "{{ hostname }}"
+          AppGroup: "{{ app_group }}"
+          Environment: "{{ dep_env }}"
+          DataClass: "{{ data_class }}"
+          OpWindow: "{{ op_window }}"
     register: ec2
