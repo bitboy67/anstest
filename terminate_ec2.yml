@@ -3,10 +3,9 @@
   hosts: localhost
   connection: local
   tasks:
-        
-    - name: Terminate instances that were previously launched
-      ec2:
-        state: absent
-        region: ap-southeast-2
-        instance_tags:
-          Name: "{{ host_name }}"
+  - name: Terminate instances that were previously launched
+    ec2:
+      state: absent
+      region: ap-southeast-2
+      instance_tags:
+        Name: "{{ host_name }}"
