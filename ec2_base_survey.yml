@@ -36,7 +36,7 @@
         vpc_subnet_id: "{{ aws_subnet }}"
         private_ip: "{{ ip_address }}"
         assign_public_ip: no
-        termination_protection: yes
+        termination_protection: no
         instance_tags:
           Name: "{{ hostname }}"
           AppGroup: "{{ app_group }}"
