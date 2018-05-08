@@ -6,6 +6,7 @@
     - name: turn off termination protection
       ec2:
         termination_protection: no
+        region: ap-southeast-2
         state: restarted
         instance_tags:
           Name: "{{ host_name }}"
@@ -13,5 +14,6 @@
     - name: Terminate instances that were previously launched
       ec2:
         state: absent
+        region: ap-southeast-2
         instance_tags:
           Name: "{{ host_name }}"
